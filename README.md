@@ -1,46 +1,22 @@
-# Getting Started with Create React App
+# Roman's Trading Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+I made this little trading tool to help me manage my risk, it's not perfect but I made it for my needs, it might not work for your needs, use it at your own risk.
 
-## Available Scripts
+To make it work locally,
+- Clone the repository
+- Create a file named .env.production at the root with the following values
+```
+REACT_APP_BASE_URL=https://fapi.binance.com
+REACT_APP_WEBSOCKET_URL=wss://fstream.binance.com
+REACT_APP_BINANCE_KEY=[YOUR BINANCE API KEY]
+REACT_APP_BINANCE_SECRET=[YOUR BINANCE SECRET KEY]
+```
+- Run these commands
+```
+npm run build
+npm install serve
+serve -s build
+```
+- Access the tool at http://localhost:3000/
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+As there is no backend with this project, you either need to use your own or use a proxy to forward orders endpoint calls (THIS IS NOT SAFE! USE AT YOUR OWN RISK!), otherwise you will have CORS issues. The project is currently configured to use a local proxy (cors-anywhere is a nodejs library that can help you with that.)
