@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #0A1929;
 }
 
 .App-logo {
@@ -13,10 +14,10 @@
   }
 }
 
-.App-header {
-  min-height: 100vh;
+.App-body {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -36,4 +37,14 @@
   100% {
     transform: translateY(0px);
   }
+}
+
+.Tool-col {
+  height: 100%;
+  width: 35%;
+}
+
+.Price-col {
+  height: 100%;
+  width: 65%;
 }

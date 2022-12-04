@@ -1,57 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Price } from './features/price/Price';
+import { Form } from './features/form/Form';
 import './App.css';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { SnackbarProvider } from 'notistack'
+import { useAppDispatch } from './app/hooks';
+import { clearMessages } from './features/form/formSlice';
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark'
+    }
+  })
+
+  const dispatch = useAppDispatch()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <SnackbarProvider autoHideDuration={5000} onClose={() => {dispatch(clearMessages())}} anchorOrigin={{horizontal: 'center', vertical: 'top'}}>
+        <div className="App">
+          <header className="App-body">
+            <div className='Tool-col'>
+              <Form/>
+            </div>
+            <div className='Price-col'>
+              <Price/>
+            </div>
+          </header>
+        </div>
+      </SnackbarProvider>
+    </ThemeProvider>
   );
 }
 
