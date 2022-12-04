@@ -9,7 +9,7 @@ export function Price() {
 
     return (
         <div className={styles.Container}>
-            {showChart && <AdvancedRealTimeChart theme="dark" symbol={selectedSymbol?.symbol.concat("PERP")} interval="60" autosize></AdvancedRealTimeChart>}
+            {showChart && <AdvancedRealTimeChart timezone="Europe/Paris" studies={['AwesomeOscillator@tv-basicstudies', 'StochasticRSI@tv-basicstudies']} theme="dark" symbol={selectedSymbol?.symbol.concat("PERP")} interval="60" autosize></AdvancedRealTimeChart>}
         </div>
     )
 }
