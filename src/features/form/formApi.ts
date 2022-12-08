@@ -237,7 +237,7 @@ export function openMarketOrder(symbol: string, side: string, quantity: number) 
 
 export function openMarketStopLossOrder(symbol: string, side: string, quantity: number, price: number) {
     return new Promise<boolean>((resolve, reject) => {
-        const params = {'symbol': symbol, 'side': side == 'LONG' ? 'SELL' : 'BUY', 'type': 'STOP_MARKET', 'timeInForce': 'GTE_GTC', 'quantity': quantity, 'stopPrice': price, 'workingType': 'MARK_PRICE', 'closePosition': true, 'timestamp': Date.now()}
+        const params = {'symbol': symbol, 'side': side == 'LONG' ? 'SELL' : 'BUY', 'type': 'STOP_MARKET', 'priceProtect': 'TRUE', 'timeInForce': 'GTE_GTC', 'quantity': quantity, 'stopPrice': price, 'workingType': 'MARK_PRICE', 'closePosition': true, 'timestamp': Date.now()}
         let queryString = Object.entries(params).map((key, value) => key.join('=')).join('&')
         const sign = signature(queryString)
         const config = {
