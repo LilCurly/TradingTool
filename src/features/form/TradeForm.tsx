@@ -160,6 +160,11 @@ export function TradeForm() {
                     <MenuItem value={3}>x3</MenuItem>
                     <MenuItem value={4}>x4</MenuItem>
                     <MenuItem value={5}>x5</MenuItem>
+                    <MenuItem value={6}>x6</MenuItem>
+                    <MenuItem value={7}>x7</MenuItem>
+                    <MenuItem value={8}>x8</MenuItem>
+                    <MenuItem value={9}>x9</MenuItem>
+                    <MenuItem value={10}>x10</MenuItem>
                 </Select>
             </Grid>
             <Grid item xs={12}>
